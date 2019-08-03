@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Welcome Home</title>
+	<link rel="icon" type="image/png" href="assets/favicon.png">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+	<div class="container">
+
+		<div id="top-bar" class="flexbar">
+				<span id="time">00:00</span>
+				<span id="welcome-greeting"></span>
+				<span class="pull-right" ><a class="link accent-link" id="editBtn" href="#">Edit</a></span>
+		</div>
+
+		<div class="flexbar">
+				<form id="search" autocomplete="off"  action="http://www.google.com/search?" method="get">
+					<input  type="text" name="q" placeholder="Search...">
+				</form>
+		</div>
+
+		<div id="content">
+			<!--Dynamically Populated-->
+		</div>
+
+		<div class="flexbar">
+			<div id="weather" class="pull-right">
+				<h4 id="w-location"></h4>
+				<img id="w-icon"></img>
+				<span>
+					<h4 id="w-temp"></h4>
+					<h4 id="w-desc"></h4>
+				</span>
+			</div>
+		</div>		
+	</div>
+
+	<section id="settings" class="background">
+		<div class="menu">
+			<div class="nav-area">
+				<a class="nav-item active" id="details" href="#">Details</a>
+				<a class="nav-item" id="theme" href="#">Theme</a>
+				<a class="nav-item" id="layout" href="#">Layout</a>
+				<a class="nav-item" id="bookmarks" href="#">Bookmarks</a>
+			</div>
+			<div class="menu-content">
+				<span class="pull-right" id="errorMessage" >Error</span>
+
+				<div class = "settings-section details active">
+					<p>Name</p>
+					<span><input  type="text"  id="nameInput" placeholder="Enter your Name."></span>
+					<p>Location</p>
+					<span>
+						<input  type="text"  id="cityInput" placeholder="Enter your City.">
+						<input  type="text"  id="countryInput" placeholder="Enter your Country Code.">
+					</span>
+
+				</div>
+				<div class="settings-section theme">
+					<p>Accent Color</p>
+					<span><input  type="text"  id="colorInput" placeholder="Enter a Color."></span>
+				</div>
+
+				<div class="settings-section layout">
+					<h3>Coming Soon!</h3>
+				</div>
+
+				<div class="settings-section bookmarks">
+				</div>
+
+
+
+				<div class="close-settings">
+					<a class="close" href="#">Close</a>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<script type="text/javascript" src="js/weather.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
