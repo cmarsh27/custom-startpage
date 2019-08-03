@@ -1,7 +1,7 @@
 const welcomeTemplate = ["night", "morning", "afternoon", "evening"];
 let settings = {
     userName : 'John',
-    accentColor: '#444cc',
+    accentColor: '#a64dff',
     city : 'London',
     country : 'UK'
 }
