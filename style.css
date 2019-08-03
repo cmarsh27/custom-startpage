@@ -15,10 +15,11 @@
 body{
 	font-family: 'Roboto', sans-serif;
 	color: var(--text);
-    background-image:  var(--bg-image);
+   	background-image:  var(--bg-image);
 	background-position: center;
-    background-repeat: no-repeat; 
-    background-size: cover; 
+   	background-repeat: no-repeat; 
+  	background-size: cover; 
+	height:100hv;
 }
 a{
 	text-decoration:none;
