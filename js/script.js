@@ -1,72 +1,67 @@
 const welcomeTemplate = ["night", "morning", "afternoon", "evening"];
 let settings = {
-    userName : 'John',
+    userName : 'Cmarsh',
     accentColor: '#a64dff',
+    bgColor: '#373769',
+    bgImage: 'assets/bg1.jpg',
+    bgHidden: 'false',
     city : 'London',
     country : 'UK'
 }
 
 let bookmarks = [{
-    title : 'Category 1',
+    title : 'Fun',
     items : [
         {
-            name:'Link',
-            url:'#'
+            name:'Netflix',
+            url:'https://www.netflix.com/browse'
         },
         {
-            name:'Link',
-            url:'#'
+            name:'Youtube',
+            url:'https://www.youtube.com/'
         },
         {
-            name:'Link',
+            name:'Other',
             url:'#'
         }
     ]
 },{
-    title : 'Category',
+    title : 'Social',
     items : [
         {
-            name:'Link',
-            url:'#'
+            name:'Blebbit',
+            url:'https://reddit.com/'
         },
         {
-            name:'Link',
-            url:'#'
+            name:'Tweeter',
+            url:'https://twitter.com'
         }
     ]
 },{
-    title : 'Category 3',
+    title : 'Dev',
     items : [
         {
-            name:'Link',
-            url:'#'
+            name:'Github',
+            url:'https://github.com/cmarsh27/custom-startpage'
         },
         {
-            name:'Link',
-            url:'#'
+            name:'CodePen',
+            url:'https://codepen.io/'
         },
         {
-            name:'Link',
-            url:'#'
-        },
-        {
-            name:'Link',
-            url:'#'
-        },
-        {
-            name:'Link',
-            url:'#'
+            name:'GitLab',
+            url:'https://about.gitlab.com/'
         }
     ]
 },{
-    title : 'Category 4',
+    title : 'Forums',
     items : [
         {
-            name:'Link',
+            name:'MyFavForum',
             url:'#'
         },
         {
-            name:'Link',
+            name:'Startpages',
             url:'#'
         }
     ]
@@ -106,6 +101,14 @@ function updateTime() {
 //Functions for Updating Settings
 function updateSettings(){
     document.documentElement.style.setProperty(`--accent`, settings.accentColor);
+    document.documentElement.style.setProperty(`--bg-color`, settings.bgColor );
+    if(settings.bgHidden == 'false'){
+        document.documentElement.style.setProperty(`--bg-image`, `url(${settings.bgImage})` );
+    }else{
+        document.documentElement.style.setProperty(`--bg-image`, `url('')` );
+ 
+    }
+
 }
 
 //Function for Checking if Color is Valid
@@ -177,6 +180,7 @@ navbar.addEventListener('click', function(e){
 
 //Settings Inputs
 const colorInput = document.getElementById('colorInput');
+const bgcolorInput = document.getElementById('bgcolorInput');
 const nameInput = document.getElementById('nameInput');
 const cityInput = document.getElementById('cityInput');
 const countryInput = document.getElementById('countryInput');
@@ -196,7 +200,20 @@ colorInput.addEventListener('keyup',function(e){
         }
     }
 })
-
+bgcolorInput.addEventListener('keyup',function(e){
+    if(e.keyCode === 13){
+        chosenColor = bgcolorInput.value.toLowerCase();
+        if(/^#[0-9a-fA-F]+$/.test(chosenColor) || isColor(chosenColor)){
+            settings.bgColor = chosenColor;
+            storeSettings();
+            updateSettings();
+            bgcolorInput.value = '';
+        }else{
+            bgcolorInput.value = '';
+            displayError('Please enter a valid color.')
+        }
+    }
+})
 nameInput.addEventListener('keyup', function(e){
     if(e.keyCode === 13){
         settings.userName = nameInput.value;
@@ -205,7 +222,6 @@ nameInput.addEventListener('keyup', function(e){
         setupWelcomeMessage();
     }
 })
-
 cityInput.addEventListener('keyup', function(e){
     if(e.keyCode === 13){
         updateWeather();
@@ -232,6 +248,32 @@ function updateWeather(){
         storeSettings();
         getWeather();
     }
+}
+
+// Change Background Image
+function changeBg(input){
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            settings.bgImage = e.target.result;
+            updateSettings();
+            storeSettings();
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+//Toggle Background Image
+function toggleBg(){
+    if(settings.bgHidden == 'false'){
+        document.documentElement.style.setProperty(`--bg-image`, `url('')`);
+        settings.bgHidden = 'true';
+    }else{
+        document.documentElement.style.setProperty(`--bg-image`, `url(${settings.bgImage})`);
+        settings.bgHidden = 'false';
+    }
+    storeSettings();
 }
 
 
@@ -414,12 +456,12 @@ function storeSettings(){
 }
 
 
-
 getSettings();
+updateSettings();
+
 //Init Weather Object
 const weather = new Weather(settings.city,settings.country);
 setupWelcomeMessage();
-updateSettings();
 updateTime();
 getBookmarks();
 getWeather();
