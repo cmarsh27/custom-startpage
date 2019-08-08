@@ -4,9 +4,10 @@
     --bg: rgba(15,15,18,.7);
 	--text: #bfbfbf;
 	--text-d: #878787;
-    --highlight: #f4f4f4;
+	--highlight: #f4f4f4;
+	--bg-color: #373769;
 	--accent:     #a64dff;
-	--bg-image: url("assets/bg1.jpg");
+	--bg-image: url("");
 	--noCat: 4;
 
 }
@@ -21,6 +22,7 @@ html{
 body{
 	font-family: 'Roboto', sans-serif;
 	color: var(--text);
+	background: var(--bg-color);
     background-image:  var(--bg-image);
 	background-position: center;
     background-repeat: no-repeat; 
@@ -127,10 +129,14 @@ input{
 	height: auto;
 
 }
+.settings-section .label{
+	margin-top:8%;
+}
 .close-settings{
 	margin-top:2%;
 	text-align: right;
 }
+
 
 
 /*Bookmark Settings*/
@@ -157,7 +163,6 @@ input{
 	padding-bottom: 3%;
 	margin-bottom: 3%;
 }
-
 
 
 

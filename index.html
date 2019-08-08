@@ -11,6 +11,7 @@
 </head>
 <body>
 
+
 	<div class="container">
 
 		<div id="top-bar" class="flexbar">
@@ -53,9 +54,9 @@
 				<span class="pull-right" id="errorMessage" >Error</span>
 
 				<div class = "settings-section details active">
-					<p>Name</p>
+					<p class="label">Name</p>
 					<span><input  type="text"  id="nameInput" placeholder="Enter your Name."></span>
-					<p>Location</p>
+					<p class="label">Location</p>
 					<span>
 						<input  type="text"  id="cityInput" placeholder="Enter your City.">
 						<input  type="text"  id="countryInput" placeholder="Enter your Country Code.">
@@ -63,8 +64,12 @@
 
 				</div>
 				<div class="settings-section theme">
-					<p>Accent Color</p>
+					<p class="label">Accent Color</p>
 					<span><input  type="text"  id="colorInput" placeholder="Enter a Color."></span>
+					<p class="label">Background Image</p>
+					<span><input  type="file"  id="backgroundImgInput" onchange="changeBg(this)"><a href='#' id="hideButton" class="link accent-link pull-right" onclick="toggleBg();">Hide/Show</a></span>
+					<p class="label">Background Color</p>
+					<span><input  type="text"  id="bgcolorInput" placeholder="Enter a Color."></span>
 				</div>
 
 				<div class="settings-section layout">
