@@ -4,6 +4,16 @@
 
 <br>
 
-<p>Work in Progress</p>
+<p>Click the <b>Edit</b> button to change the settings and bookmarks.</p>
+
+<br>
+
+
+<p>If you would like to use this startpage, please consider swapping the API Key in weather.js with your own.</p>
+<a href="https://openweathermap.org/api">OpenWeatherMap</a>
+
+<br>
+<br>
+
 
 <img src="assets/screenshot.jpg">
