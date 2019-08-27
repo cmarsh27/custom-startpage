@@ -55,7 +55,10 @@ input{
 .accent-link:hover{
 	color: var(--accent);
 }
-
+.switchlink{
+	margin-left:2px;
+	color: var(--text-d);
+}
 
 /*Container Styles*/
 .container {
