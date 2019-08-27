@@ -6,7 +6,8 @@ let settings = {
     bgImage: 'assets/bg1.jpg',
     bgHidden: 'false',
     city : 'London',
-    country : 'UK'
+    country : 'UK',
+    timeformat : '12'
 }
 
 let bookmarks = [{
@@ -94,7 +95,14 @@ function updateTime() {
     if (m.length == 1) {
         m = "0" + m;
     }
-    var time = h + ":" + m;
+    if(settings.timeformat == '24'){
+        var time = h + ":" + m;
+    }else{
+        var ampm = h >= 12 ? 'pm' : 'am';
+        h = h % 12;
+        if (h == 0) h = 12; 
+        var time = h + ":" + m + " " + ampm;
+    }
     document.getElementById("time").innerHTML = time;
 }
 
@@ -276,6 +284,16 @@ function toggleBg(){
     storeSettings();
 }
 
+//Toggle Time
+function toggleTime(){
+    if(settings.timeformat == '12'){
+        settings.timeformat = '24';
+    }else{
+        settings.timeformat = '12';
+    }
+    updateTime();
+    storeSettings();
+}
 
 
 //Populating Bookmarks 
