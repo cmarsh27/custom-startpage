@@ -7,7 +7,7 @@ let settings = {
     bgHidden: 'false',
     city : 'London',
     country : 'UK',
-    timeformat : '12'
+    timeformat : '24'
 }
 
 let bookmarks = [{
